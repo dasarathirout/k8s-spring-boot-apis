@@ -1,0 +1,6 @@
+pluginManagement {
+    includeBuild('build-utils')
+}
+
+rootProject.name = 'k8s-spring-boot-apis'
+include('service-zero','service-one', 'service-two', 'service-database')

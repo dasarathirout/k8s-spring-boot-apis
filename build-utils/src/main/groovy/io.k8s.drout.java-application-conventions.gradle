@@ -1,0 +1,8 @@
+/*
+ * 
+ */
+
+plugins {
+    id 'io.k8s.drout.java-common-conventions'
+    id 'application'
+}

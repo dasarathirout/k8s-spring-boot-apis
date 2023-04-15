@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: 'API ZERO'
+  cloud:
+    vault:
+      host: localhost
+      port: 8200
+      scheme: http
+      uri: https://localhost:8200
+      authentication: TOKEN
+      token: 00000000-0000-0000-0000-000000000000
+api:
+  zero:
+    url: 'http://localhost:8180/portal-zero'
