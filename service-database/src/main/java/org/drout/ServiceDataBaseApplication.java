@@ -1,5 +1,6 @@
 package org.drout;
 
+import lombok.extern.java.Log;
 import org.drout.dao.UserDetailsRepository;
 import org.drout.dao.UserDetailsRepositoryI;
 import org.drout.dao.entities.TaskCardDetails;
@@ -19,7 +20,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
-
+@Log
 @SpringBootApplication
 public class ServiceDataBaseApplication  implements CommandLineRunner {
 
@@ -40,7 +41,7 @@ public class ServiceDataBaseApplication  implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		System.out.println("http://localhost:8183/portal-database/explorer/index.html#uri=/portal-database/management/actuator");
+		log.info("http://localhost:8183/portal-database/explorer/index.html#uri=/portal-database/management/actuator");
 		//addUserDetails();
 		addTaskCardDetails();
 	}

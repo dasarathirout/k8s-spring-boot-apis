@@ -1,5 +1,6 @@
 package org.drout.actuator;
 
+import lombok.extern.java.Log;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.actuate.endpoint.annotation.Endpoint;
 import org.springframework.boot.actuate.endpoint.annotation.ReadOperation;
@@ -9,7 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 
-
+@Log
 @Endpoint(id="heart-beat")
 @Component
 public class HeartBeat {
@@ -19,9 +20,9 @@ public class HeartBeat {
     @Bean
     @ReadOperation
     public ResponseEntity<Pulses> getPulse() {
+        log.info("http://host.docker.internal:8182/portal-two/management/actuator/heart-beat");
         Pulses statusCheck = new Pulses(applicationName);
         HttpHeaders headers = new HttpHeaders();
-        ResponseEntity<Pulses> entity = new ResponseEntity<>(statusCheck,headers, HttpStatus.OK);
-        return entity;
+        return new ResponseEntity<>(statusCheck,headers, HttpStatus.OK);
     }
 }

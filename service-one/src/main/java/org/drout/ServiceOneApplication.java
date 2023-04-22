@@ -1,9 +1,11 @@
 package org.drout;
 
+import lombok.extern.java.Log;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+@Log
 @SpringBootApplication
 public class ServiceOneApplication  implements CommandLineRunner {
 
@@ -13,6 +15,6 @@ public class ServiceOneApplication  implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		System.out.println("http://localhost:8181/portal-one/explorer/index.html#uri=/portal-one/management/actuator");
+		log.info("http://localhost:8181/portal-one/explorer/index.html#uri=/portal-one/management/actuator");
 	}
 }
