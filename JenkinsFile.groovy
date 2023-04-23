@@ -8,17 +8,19 @@ pipeline {
         USER_ENV_VAR = "TEST VALUE USER ENV VALUE"
     }//environment
 
-    ansiColor('xterm') {
-        timeout(60) {
-            timestamps {
-                stages {
+    stages {
+        ansiColor('xterm') {
+            timeout(60) {
+                timestamps {
                     stage('CLEAN') {
                         step([$class: 'WsCleanup'])
                     }
                     stage("CLONE") {
                         steps {
                             println("Running Git Clone")
-                            BuildPipeline.{'TEST-PROJECT'}
+                            BuildPipeline.{
+                                'TEST-PROJECT'
+                            }
                         }
                     }
 
@@ -39,8 +41,8 @@ pipeline {
                             println("Running Docker Image K8S Deploy")
                         }
                     }
-                }//stages
-            }// timestamps
-        }// timeout
-    }// ansiColor
+                }// timestamps
+            }// timeout
+        }// ansiColor
+    }// stages
 }//pipeline
