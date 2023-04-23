@@ -11,7 +11,7 @@ pipeline {
     stages {
 
         stage('CLEAN') {
-            step([$class: 'WsCleanup'])
+            steps([$class: 'WsCleanup'])
         }
         stage("CLONE") {
             steps {
