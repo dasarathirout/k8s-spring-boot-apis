@@ -16,7 +16,9 @@ pipeline {
         stage("CLONE") {
             steps {
                 println("Running Git Clone")
-                BuildPipeline.startJobBuild('TEST-PROJECT')
+                BuildPipeline {
+                    projectName = 'TEST-PROJECT'
+                }
             }
         }
 
