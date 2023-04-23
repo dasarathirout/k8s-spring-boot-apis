@@ -9,40 +9,35 @@ pipeline {
     }//environment
 
     stages {
-        ansiColor('xterm') {
-            timeout(60) {
-                timestamps {
-                    stage('CLEAN') {
-                        step([$class: 'WsCleanup'])
-                    }
-                    stage("CLONE") {
-                        steps {
-                            println("Running Git Clone")
-                            BuildPipeline.{
-                                'TEST-PROJECT'
-                            }
-                        }
-                    }
 
-                    stage("BUILD") {
-                        steps {
-                            println("Running Gradle Build")
-                        }
-                    }
+        stage('CLEAN') {
+            step([$class: 'WsCleanup'])
+        }
+        stage("CLONE") {
+            steps {
+                println("Running Git Clone")
+                BuildPipeline.{
+                    'TEST-PROJECT'
+                }
+            }
+        }
 
-                    stage("PUBLISH") {
-                        steps {
-                            println("Running Gradle BootJar & Docker Image Publish")
-                        }
-                    }
+        stage("BUILD") {
+            steps {
+                println("Running Gradle Build")
+            }
+        }
 
-                    stage("DEPLOY") {
-                        steps {
-                            println("Running Docker Image K8S Deploy")
-                        }
-                    }
-                }// timestamps
-            }// timeout
-        }// ansiColor
+        stage("PUBLISH") {
+            steps {
+                println("Running Gradle BootJar & Docker Image Publish")
+            }
+        }
+
+        stage("DEPLOY") {
+            steps {
+                println("Running Docker Image K8S Deploy")
+            }
+        }
     }// stages
 }//pipeline
