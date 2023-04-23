@@ -1,3 +1,4 @@
+@Library('CICD-Shared-Libraries@main') _
 
 pipeline {
     
@@ -11,6 +12,8 @@ pipeline {
         stage("CLONE") {
             steps {
                 println("Running Git Clone")
+                results = BuildPipeline{}
+                println("BuildPipeline"+ results)
             }
         }
 
