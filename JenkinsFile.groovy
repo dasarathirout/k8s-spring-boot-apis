@@ -10,9 +10,6 @@ pipeline {
 
     stages {
 
-        stage('CLEAN') {
-            steps([$class: 'WsCleanup'])
-        }
         stage("CLONE") {
             steps {
                 println("Running Git Clone")
