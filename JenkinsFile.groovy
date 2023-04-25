@@ -4,6 +4,6 @@ node {
         ENV= 'DEV'
         PROJECT_NAME ='TEST-PROJECT'
         REPORT=true
-        DEPLOY=false
+        DEPLOY=true
     }// BuildPipeline
 }//node
