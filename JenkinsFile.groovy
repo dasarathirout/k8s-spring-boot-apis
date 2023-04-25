@@ -1,6 +1,9 @@
 @Library('CICD-Shared-Libraries@main') _
 node {
     BuildPipeline {
-        projectName = 'TEST-PROJECT'
+        ENV= 'DEV'
+        PROJECT_NAME ='TEST-PROJECT'
+        REPORT=true
+        DEPLOY=false
     }// BuildPipeline
 }//node
